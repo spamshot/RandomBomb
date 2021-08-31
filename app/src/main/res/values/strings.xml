@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Random Bomb</string>
+
+
+    <!--    fragment_bomb_display -->
+
+    <string name="txt_time">00:00</string>
+    <string name="btn_number">1</string>
+    <string name="btn_enter">Enter</string>
+    <string name="btn_clear">Clear</string>
+    <string name="txt_diffuse">^defuse code^</string>
+    <string name="txt_bombArm">Arming Bomb</string>
+
+
+    <!--    fragment_bomb_settings -->
+
+    <string name="txt_min">Minutes</string>
+    <string name="txt_seconds">Seconds</string>
+    <string name="txt_wrong">Wrong guess\ntime subtraction:</string>
+    <string name="txt_arming">Arming Time:</string>
+    <string name="txt_bomb_timer">Bomb Timer:</string>
+    <string name="txt_start">Start</string>
+    <string name="txt_hint_20">20</string>
+    <string name="txt_hint_300">300</string>
+
+
+    <!--  Both  -->
+    <string name="txt_fake">Fake Bomb</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/bombSettingFragment">
+
+
+    <fragment
+        android:id="@+id/bombSettingFragment"
+        android:name="com.l3git.randombomb.BombSettingFragment"
+        android:label="fragment_bomb_settings"
+        tools:layout="@layout/fragment_bomb_settings" >
+
+
+        <action
+            android:id="@+id/action_bombSettingFragment_to_bombDisplayFragment"
+            app:destination="@id/bombDisplayFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/bombDisplayFragment"
+        android:name="com.l3git.randombomb.BombDisplayFragment"
+        android:label="fragment_bomb_display"
+        tools:layout="@layout/fragment_bomb_display" >
+        <argument
+            android:name="timerrr"
+            app:argType="integer"
+             />
+        <argument
+            android:name="wrongguess"
+            app:argType="integer"
+             />
+        <argument
+            android:name="armtime"
+            app:argType="integer"
+             />
+        <action
+            android:id="@+id/action_bombDisplayFragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="com.l3git.randombomb.GameOverFragment"
+        android:label="GameOverFragment" >
+        <action
+            android:id="@+id/action_gameOverFragment_to_bombSettingFragment"
+            app:destination="@id/bombSettingFragment" />
+        <argument
+            android:name="gameWon"
+            app:argType="boolean" />
+    </fragment>
+</navigation>
