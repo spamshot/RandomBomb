@@ -10,6 +10,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.Navigation.findNavController
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 
 class BombSettingFragment : Fragment() {
@@ -21,6 +24,7 @@ class BombSettingFragment : Fragment() {
     private lateinit var editArmTime: EditText
     private lateinit var btnStart: Button
 
+    lateinit var mAdView: AdView
 
     private lateinit var bombSettingsFragment: ConstraintLayout
 
@@ -36,6 +40,14 @@ class BombSettingFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_bomb_settings, container, false)
+
+        MobileAds.initialize(context) {}
+
+        mAdView = view.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+
         bombSettingsFragment = view.findViewById(R.id.bombSettingsLayout)
 
         editTime = view.findViewById(R.id.bombTimer)

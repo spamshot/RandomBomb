@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/drawable-v24/ic_launcher2_background.xml" value="0.18162393162393162" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/drawable-v24/ic_launcher_background2.xml" value="0.18162393162393162" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18162393162393162" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/drawable-v24/ic_launcher_foreground2.xml" value="0.18162393162393162" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/drawable/black_cursor.xml" value="0.21923076923076923" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/drawable/ic_launcher2_background.xml" value="0.18162393162393162" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18162393162393162" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-hdpi/activity_main.xml" value="0.275" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-hdpi/fragment_bomb_display.xml" value="0.75" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-hdpi/fragment_bomb_settings.xml" value="0.67" />
@@ -14,30 +21,34 @@
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-ldpi/fragment_game_over.xml" value="1.1" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-mdpi/activity_main.xml" value="0.6459016393442623" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-mdpi/fragment_bomb_display.xml" value="0.9" />
-        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-mdpi/fragment_bomb_settings.xml" value="1.2659883720930232" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-mdpi/fragment_bomb_settings.xml" value="1.0" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-mdpi/fragment_game_over.xml" value="1.2122093023255813" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-sw600dp/activity_main.xml" value="0.14" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-sw600dp/fragment_bomb_display.xml" value="0.14" />
-        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-sw600dp/fragment_bomb_settings.xml" value="0.14" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-sw600dp/fragment_bomb_settings.xml" value="0.33" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-sw600dp/fragment_game_over.xml" value="0.14" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xhdpi/activity_main.xml" value="0.275" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xhdpi/fragment_bomb_display.xml" value="0.33" />
-        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xhdpi/fragment_bomb_settings.xml" value="0.5" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xhdpi/fragment_bomb_settings.xml" value="0.33" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xhdpi/fragment_game_over.xml" value="0.5" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xxhdpi/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xxhdpi/fragment_bomb_display.xml" value="0.25" />
-        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xxhdpi/fragment_bomb_settings.xml" value="0.25" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xxhdpi/fragment_bomb_settings.xml" value="0.22" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xxhdpi/fragment_game_over.xml" value="0.22" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xxxhdpi/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xxxhdpi/fragment_bomb_display.xml" value="0.33" />
-        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xxxhdpi/fragment_bomb_settings.xml" value="0.22" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xxxhdpi/fragment_bomb_settings.xml" value="0.18" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout-xxxhdpi/fragment_game_over.xml" value="0.2" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout/fragment_bomb_display.xml" value="0.33" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout/fragment_bomb_display.xml" value="0.22" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout/fragment_bomb_display2.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout/fragment_bomb_setting.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout/fragment_bomb_settings.xml" value="0.25" />
         <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/layout/fragment_game_over.xml" value="0.22" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.18162393162393162" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/mipmap-anydpi-v26/ic_launcher2.xml" value="0.18162393162393162" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/mipmap-anydpi-v26/ic_launcher2_round.xml" value="0.18162393162393162" />
+        <entry key="..\:/Users/Khill/AndroidStudioProjects/RandomBomb/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18162393162393162" />
       </map>
     </option>
   </component>

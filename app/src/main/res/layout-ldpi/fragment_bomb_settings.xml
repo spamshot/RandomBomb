@@ -15,15 +15,15 @@
         android:id="@+id/extInFo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="@string/txt_fake"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/adView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,7 +50,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.352" />
+        app:layout_constraintVertical_bias="0.352"
+        android:textCursorDrawable="@drawable/black_cursor"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -91,7 +92,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/txtArmTime"
         app:layout_constraintStart_toEndOf="@+id/txtArmTime"
         app:layout_constraintTop_toTopOf="@+id/txtArmTime"
-        app:layout_constraintVertical_bias="0.476" />
+        app:layout_constraintVertical_bias="0.476"
+        android:textCursorDrawable="@drawable/black_cursor"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -109,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="23dp"
-        android:layout_marginBottom="211dp"
+        android:layout_marginBottom="180dp"
         android:text="@string/txt_wrong"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -129,7 +131,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.571" />
+        app:layout_constraintVertical_bias="0.571"
+        android:textCursorDrawable="@drawable/black_cursor"/>
 
     <TextView
         android:id="@+id/textView"
@@ -156,5 +159,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6dp"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-6461309687092712/1416015371"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.google.android.gms.ads.AdView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
