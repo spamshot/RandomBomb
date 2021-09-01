@@ -13,10 +13,10 @@
         android:id="@+id/countDownTimerDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="00:00"
-        android:textSize="60sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +58,7 @@
         android:gravity="center"
         android:layout_marginTop="12dp"
         android:text="@string/txt_diffuse"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text=""
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,8 +82,7 @@
         android:id="@+id/button0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-
+        android:layout_marginEnd="13dp"
         android:text="@string/btn_number"
         android:textSize="16sp"
         android:padding="8dp"
@@ -98,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="13dp"
+        android:layout_marginBottom="12dp"
 
         android:padding="8dp"
         android:text="@string/btn_number"
@@ -112,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="13dp"
         android:text="@string/btn_number"
 
         android:textSize="16sp"
@@ -126,7 +125,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="13dp"
 
         android:text="@string/btn_number"
         android:textSize="16sp"
@@ -139,7 +138,7 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="13dp"
+        android:layout_marginBottom="12dp"
 
         android:padding="8dp"
         android:text="@string/btn_number"
@@ -154,7 +153,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="13dp"
         android:text="@string/btn_number"
 
         android:textSize="16sp"
@@ -168,7 +167,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="13dp"
         android:text="@string/btn_number"
 
         android:textSize="16sp"
@@ -182,7 +181,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="13dp"
+        android:layout_marginBottom="12dp"
         android:padding="8dp"
 
         android:text="@string/btn_number"
@@ -195,7 +194,7 @@
         android:id="@+id/button8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="13dp"
 
         android:layout_marginTop="13dp"
         android:text="@string/btn_number"
@@ -225,7 +224,7 @@
         android:id="@+id/enterBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="13dp"
         android:backgroundTint="#16AA1C"
 
         android:text="@string/btn_enter"
@@ -240,7 +239,7 @@
         android:id="@+id/clearBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="13dp"
         android:backgroundTint="#FF1B1B"
 
         android:text="@string/btn_clear"
