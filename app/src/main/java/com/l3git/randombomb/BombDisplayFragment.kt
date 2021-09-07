@@ -14,60 +14,35 @@ import androidx.core.view.isVisible
 import androidx.navigation.Navigation
 
 import androidx.navigation.fragment.navArgs
+import com.l3git.randombomb.databinding.FragmentBombDisplayBinding
 
 
 class BombDisplayFragment : Fragment() {
 
-
+    private var _binding: FragmentBombDisplayBinding? = null
+    private val binding get() = _binding!!
     private val args: BombDisplayFragmentArgs by navArgs()
-
 
     private val numbers = mutableListOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9) //Numbers for button shuffle
     private val defuseNumber = mutableListOf<Int>() //Number we type in and use to check with defuseNumber
-
     private val defuseCode = mutableListOf<Int>() //Numbers for defuseCode
 
-    private var mediaPlayerSiren: MediaPlayer? = null //inside clear BTN
+
+    private var mediaPlayerSiren: MediaPlayer? = null //inside clear BTN todo
     private var mediaPlayerBeeper: MediaPlayer? = null //inside Timer
     private var mediaPlayerBombArming: MediaPlayer? = null // Bomb Arming
 
 
-
-    private lateinit var enterBtn: Button
-    private lateinit var clearBtn: Button
-    private lateinit var button0: Button
-    private lateinit var button1: Button
-    private lateinit var button2: Button
-    private lateinit var button3: Button
-    private lateinit var button4: Button
-    private lateinit var button5: Button
-    private lateinit var button6: Button
-    private lateinit var button7: Button
-    private lateinit var button8: Button
-    private lateinit var button9: Button
-
-
-    lateinit var defuseTxt: TextView
-    lateinit var pinEntered: TextView //pos 0
-    lateinit var txtCountDownTimerDisplay: TextView
-    lateinit var txtArming: TextView
-    lateinit var txtHint: TextView
-
     //    ///////TIMER////////////TIMER//////////////TIMER////////////TIMER/////////
-
-//    ............
-
     private lateinit var timerCountdownTimer: CountDownTimer
     private var isArming: Boolean = false
     private var timeInMill = 0L
 
-//    ............
+    ///////TIMER////////////TIMER//////////////TIMER////////////TIMER/////////
 
     private lateinit var countdownTimer: CountDownTimer
     private var isRunning: Boolean = false
     var timeInMilliSeconds = 0L
-
-    ///////TIMER////////////TIMER//////////////TIMER////////////TIMER/////////
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,191 +52,150 @@ class BombDisplayFragment : Fragment() {
         mediaPlayerBeeper = MediaPlayer.create(context, R.raw.beeper) //Loads sound for timer
         mediaPlayerBombArming = MediaPlayer.create(context, R.raw.alarmhugescifsp) //Loads Arming Bomb
 
-
     }
+
 
     private fun btnOn() {
-        button0.isEnabled = true
-        button1.isEnabled = true
-        button2.isEnabled = true
-        button3.isEnabled = true
-        button4.isEnabled = true
-        button5.isEnabled = true
-        button6.isEnabled = true
-        button7.isEnabled = true
-        button8.isEnabled = true
-        button9.isEnabled = true
-
+        binding.button0.isEnabled = true
+        binding.button1.isEnabled = true
+        binding.button2.isEnabled = true
+        binding.button3.isEnabled = true
+        binding.button4.isEnabled = true
+        binding.button5.isEnabled = true
+        binding.button6.isEnabled = true
+        binding.button7.isEnabled = true
+        binding.button8.isEnabled = true
+        binding.button9.isEnabled = true
     }
+
 
     private fun btnOff() {
-        button0.isEnabled = false
-        button1.isEnabled = false
-        button2.isEnabled = false
-        button3.isEnabled = false
-        button4.isEnabled = false
-        button5.isEnabled = false
-        button6.isEnabled = false
-        button7.isEnabled = false
-        button8.isEnabled = false
-        button9.isEnabled = false
-
-
+        binding.button0.isEnabled = false
+        binding.button1.isEnabled = false
+        binding.button2.isEnabled = false
+        binding.button3.isEnabled = false
+        binding.button4.isEnabled = false
+        binding.button5.isEnabled = false
+        binding.button6.isEnabled = false
+        binding.button7.isEnabled = false
+        binding.button8.isEnabled = false
+        binding.button9.isEnabled = false
     }
+
 
     private fun btnActionOff() {
-        enterBtn.isEnabled = false
-        clearBtn.isEnabled = false
-
+        binding.enterBtn.isEnabled = false
+        binding.clearBtn.isEnabled = false
     }
+
     private fun btnActionOn() {
-        enterBtn.isEnabled = true
-        clearBtn.isEnabled = true
-
+        binding.enterBtn.isEnabled = true
+        binding.clearBtn.isEnabled = true
     }
-
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-//
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_bomb_display, container, false)
-        txtCountDownTimerDisplay = view.findViewById(R.id.countDownTimerDisplay)
-        val myArmTime = args.armtime // get the arm time from other fragment for timer
+    ): View {
+        _binding = FragmentBombDisplayBinding.inflate(inflater, container, false)
 
-
-        // Timer /// Timer // Timer  // Timer /// Timer // Timer  // Timer /// Timer // Timer
 
         if (isArming) {
             pauseTimer()
 
         } else {
-            timeInMill = myArmTime.toLong() * 1000L + 1000L
+            timeInMill = args.armtime.toLong() * 1000L + 1000L
             startArmingTimer(timeInMill)
         }
 
-//        }..........^............Main...........^..................^.....Main...........................
-
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
-
-
-        clearBtn = view.findViewById(R.id.clearBtn)
-        enterBtn = view.findViewById(R.id.enterBtn)
-        button0 = view.findViewById(R.id.button0)
-        button1 = view.findViewById(R.id.button1)
-        button2 = view.findViewById(R.id.button2)
-        button3 = view.findViewById(R.id.button3)
-        button4 = view.findViewById(R.id.button4)
-        button5 = view.findViewById(R.id.button5)
-        button6 = view.findViewById(R.id.button6)
-        button7 = view.findViewById(R.id.button7)
-        button8 = view.findViewById(R.id.button8)
-        button9 = view.findViewById(R.id.button9)
-
-
-
-        defuseTxt = view.findViewById(R.id.diffuseCodeTxt)
-        pinEntered = view.findViewById(R.id.pinEntered)
-
-        txtArming = view.findViewById(R.id.txtArming)
-        txtHint = view.findViewById(R.id.txtHint)
-
-
         //Disable buttons on start
         btnOff()
         btnActionOff()
 
-
-
-
+        // Shuffles the code and sets it
         defuseCode.shuffle()
-        defuseTxt.text = defuseCode.toString()
+        binding.diffuseCodeTxt.text = defuseCode.toString()
         shuffleAndSet()
-
         populateDefuseCode()
 
-        button0.setOnClickListener {
+        binding.button0.setOnClickListener {
             defuseNumber.add(numbers[0])
-            pinEntered.text = defuseNumber.toString()
+            binding.pinEntered.text = defuseNumber.toString()
             shuffleAndSet()
 
         }
-        button1.setOnClickListener {
+        binding.button1.setOnClickListener {
             defuseNumber.add(numbers[1])
-            pinEntered.text = defuseNumber.toString()
+            binding.pinEntered.text = defuseNumber.toString()
             shuffleAndSet()
         }
-        button2.setOnClickListener {
+        binding.button2.setOnClickListener {
             defuseNumber.add(numbers[2])
-            pinEntered.text = defuseNumber.toString()
+            binding.pinEntered.text = defuseNumber.toString()
             shuffleAndSet()
         }
-        button3.setOnClickListener {
+        binding.button3.setOnClickListener {
             defuseNumber.add(numbers[3])
-            pinEntered.text = defuseNumber.toString()
+            binding.pinEntered.text = defuseNumber.toString()
             shuffleAndSet()
         }
-        button4.setOnClickListener {
+        binding.button4.setOnClickListener {
             defuseNumber.add(numbers[4])
-            pinEntered.text = defuseNumber.toString()
+            binding.pinEntered.text = defuseNumber.toString()
             shuffleAndSet()
         }
-        button5.setOnClickListener {
+        binding.button5.setOnClickListener {
             defuseNumber.add(numbers[5])
-            pinEntered.text = defuseNumber.toString()
+            binding.pinEntered.text = defuseNumber.toString()
             shuffleAndSet()
         }
-        button6.setOnClickListener {
+        binding.button6.setOnClickListener {
             defuseNumber.add(numbers[6])
-            pinEntered.text = defuseNumber.toString()
+            binding.pinEntered.text = defuseNumber.toString()
             shuffleAndSet()
         }
-        button7.setOnClickListener {
+        binding.button7.setOnClickListener {
             defuseNumber.add(numbers[7])
-            pinEntered.text = defuseNumber.toString()
+            binding.pinEntered.text = defuseNumber.toString()
             shuffleAndSet()
         }
-        button8.setOnClickListener {
+        binding.button8.setOnClickListener {
             defuseNumber.add(numbers[8])
-            pinEntered.text = defuseNumber.toString()
+            binding.pinEntered.text = defuseNumber.toString()
             shuffleAndSet()
         }
-        button9.setOnClickListener {
+        binding.button9.setOnClickListener {
             defuseNumber.add(numbers[9])
-            pinEntered.text = defuseNumber.toString()
+            binding.pinEntered.text = defuseNumber.toString()
             shuffleAndSet()
         }
 
-
-        clearBtn.setOnClickListener {
+        binding.clearBtn.setOnClickListener {
 
             defuseCode.shuffle()
-            defuseTxt.text = defuseCode.toString()
-            pinEntered.text = defuseNumber.toString()
+            binding.diffuseCodeTxt.text = defuseCode.toString()
+            binding.pinEntered.text = defuseNumber.toString()
             btnOn() //todo
             wrongGuess()
 
             mediaPlayerSiren?.start() //plays sound
-
         }
 
-        enterBtn.setOnClickListener {
+        binding.enterBtn.setOnClickListener {
             val listSize = defuseNumber.size
             var i = 0
             if (listSize == 6) {// When they enter code to disarm bomb == 10
                 while (i <= 5) {
                     if (defuseCode.elementAt(i) == defuseNumber.elementAt(i)) { // Checks all numbers to see if they match to defuse
                         i++
-                        if(i == 6){ // If all defuse code matches, this will defuse the bomb
+                        if (i == 6) { // If all defuse code matches, this will defuse the bomb
                             timerHasEndedGameWon()
 
                         }
@@ -271,9 +205,8 @@ class BombDisplayFragment : Fragment() {
                         i = 11
                         populateDefuseCode()
                         wrongGuess()
-                        pinEntered.text = defuseNumber.toString()
-                        defuseTxt.text = defuseCode.toString()
-
+                        binding.pinEntered.text = defuseNumber.toString()
+                        binding.diffuseCodeTxt.text = defuseCode.toString()
 
                     }
                 }
@@ -282,7 +215,7 @@ class BombDisplayFragment : Fragment() {
 
     }
 
-    fun populateDefuseCode(){
+    fun populateDefuseCode() {
 
         defuseCode.add(numbers[0])
         defuseCode.add(numbers[1])
@@ -290,8 +223,7 @@ class BombDisplayFragment : Fragment() {
         defuseCode.add(numbers[3])
         defuseCode.add(numbers[4])
         defuseCode.add(numbers[5])
-        defuseTxt.text = defuseCode.toString()
-
+        binding.diffuseCodeTxt.text = defuseCode.toString()
     }
 
     fun shuffleAndSet() {
@@ -302,18 +234,17 @@ class BombDisplayFragment : Fragment() {
             Toast.makeText(context, "Code entered", Toast.LENGTH_SHORT).show()
             btnOff() // turns off buttons when max code
         }
-        button0.text = numbers[0].toString()
-        button1.text = numbers[1].toString()
-        button2.text = numbers[2].toString()
-        button3.text = numbers[3].toString()
-        button4.text = numbers[4].toString()
-        button5.text = numbers[5].toString()
-        button6.text = numbers[6].toString()
-        button7.text = numbers[7].toString()
-        button8.text = numbers[8].toString()
-        button9.text = numbers[9].toString()
+        binding.button0.text = numbers[0].toString()
+        binding.button1.text = numbers[1].toString()
+        binding.button2.text = numbers[2].toString()
+        binding.button3.text = numbers[3].toString()
+        binding.button4.text = numbers[4].toString()
+        binding.button5.text = numbers[5].toString()
+        binding.button6.text = numbers[6].toString()
+        binding.button7.text = numbers[7].toString()
+        binding.button8.text = numbers[8].toString()
+        binding.button9.text = numbers[9].toString()
     }
-
 
     private fun pauseTimer() {
 
@@ -322,13 +253,13 @@ class BombDisplayFragment : Fragment() {
 
     }
 
-
     private fun startTimer(time_in_seconds: Long) {
         countdownTimer = object : CountDownTimer(time_in_seconds, 1000) {
             override fun onFinish() {
                 timerHasEnded()
 
             }
+
             override fun onTick(p0: Long) {
                 timeInMilliSeconds = p0
                 updateTextUI()
@@ -338,7 +269,6 @@ class BombDisplayFragment : Fragment() {
         countdownTimer.start()
         isRunning = true
 
-
     }
 
     private fun startArmingTimer(time_in_seconds: Long) {
@@ -346,8 +276,8 @@ class BombDisplayFragment : Fragment() {
             override fun onFinish() {
                 armingHasEnded()
                 btnActionOn()
-
             }
+
             override fun onTick(p0: Long) {
                 timeInMill = p0
                 updateArmingTextUI()
@@ -357,7 +287,6 @@ class BombDisplayFragment : Fragment() {
 
         timerCountdownTimer.start()
         isArming = true
-
 
     }
 
@@ -370,7 +299,7 @@ class BombDisplayFragment : Fragment() {
     fun updateTextUI() {
         val minute = (timeInMilliSeconds / 1000) / 60
         val seconds = (timeInMilliSeconds / 1000) % 60
-        txtCountDownTimerDisplay.text = "$minute:$seconds"
+        binding.countDownTimerDisplay.text = "$minute:$seconds"
 
 
     }
@@ -378,11 +307,10 @@ class BombDisplayFragment : Fragment() {
     fun updateArmingTextUI() {
         val minute = (timeInMill / 1000) / 60
         val seconds = (timeInMill / 1000) % 60
-        txtCountDownTimerDisplay.text = "$minute:$seconds"
+        binding.countDownTimerDisplay.text = "$minute:$seconds"
         mediaPlayerBombArming?.start()
 
     }
-
 
     private fun timerHasEnded() {
 
@@ -407,32 +335,30 @@ class BombDisplayFragment : Fragment() {
 
     }
 
-
     private fun armingHasEnded() {
         timerCountdownTimer.cancel()
         isArming = false
         Toast.makeText(context, "Bomb Armed", Toast.LENGTH_SHORT).show()
         mediaPlayerBombArming?.stop()
         bombStarted()
-        txtArming.isVisible = false
-
+        binding.txtArming.isVisible = false
 
     }
 
-    private fun bombStarted(){
+    private fun bombStarted() {
         btnOn()
         val myNumber = args.timerrr
         isRunning = true
 
-        txtHint.isVisible = true
-        defuseTxt.isVisible = true
+        binding.txtHint.isVisible = true
+        binding.diffuseCodeTxt.isVisible = true
 
         timeInMilliSeconds = myNumber.toLong() * 60000L
         startTimer(timeInMilliSeconds)
 
     }
 
-    private fun wrongGuess(){
+    private fun wrongGuess() {
 
         val myGuess = args.wrongguess * 1000
         defuseNumber.clear()
@@ -440,7 +366,7 @@ class BombDisplayFragment : Fragment() {
 
         shuffleAndSet()
 
-        pinEntered.text = defuseNumber.toString()
+        binding.pinEntered.text = defuseNumber.toString()
         pauseTimer() // used for wrong guss
         resetTimer() // used for wrong guss
         populateDefuseCode()
@@ -449,7 +375,8 @@ class BombDisplayFragment : Fragment() {
         startTimer(timeInMilliSeconds - myGuess.toLong())
     }
 
-
-//////TIMER///////////////////////////////TIMER//////////////////////////////TIMER//////////////////////////////TIMER/////////////////
-
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
+    }
 }

@@ -13,21 +13,13 @@ import androidx.navigation.Navigation.findNavController
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import com.l3git.randombomb.databinding.FragmentBombSettingsBinding
 
 
 class BombSettingFragment : Fragment() {
 
-
-
-    private lateinit var editTime: EditText
-    private lateinit var editMinusTime: EditText
-    private lateinit var editArmTime: EditText
-    private lateinit var btnStart: Button
-
-    lateinit var mAdView: AdView
-
-    private lateinit var bombSettingsFragment: ConstraintLayout
-
+    private var _binding: FragmentBombSettingsBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,42 +29,32 @@ class BombSettingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_bomb_settings, container, false)
+       _binding = FragmentBombSettingsBinding.inflate(inflater, container, false)
 
-        MobileAds.initialize(context) {}
+        MobileAds.initialize(requireContext()) {}
 
-        mAdView = view.findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
+        binding.adView.loadAd(adRequest)
 
 
-        bombSettingsFragment = view.findViewById(R.id.bombSettingsLayout)
+        binding.btnStart.setOnClickListener{
+            if (binding.editArmTime.text.toString().isNotEmpty() && binding.editMinusTime.text.toString().isNotEmpty() && binding.editArmTime.text.toString().isNotEmpty()){
 
-        editTime = view.findViewById(R.id.bombTimer)
-        editMinusTime = view.findViewById(R.id.editMinusTime)
-        editArmTime = view.findViewById(R.id.editArmTime)
-        btnStart = view.findViewById(R.id.btnStart)
+                val amountBombTime = binding.editArmTime.text.toString().toInt()
+                val wrongGuessTime = binding.editMinusTime.text.toString().toInt()
+                val armTime = binding.editArmTime.text.toString().toInt()
 
-
-        btnStart.setOnClickListener{
-            if (editTime.text.toString().isNotEmpty() && editMinusTime.text.toString().isNotEmpty() && editArmTime.text.toString().isNotEmpty()){
-
-                val amount = editTime.text.toString().toInt()
-                val minusTime = editMinusTime.text.toString().toInt()
-                val armTime = editArmTime.text.toString().toInt()
-
-                if(amount > 0 && minusTime > 0 && armTime > 0){
-                    val action = BombSettingFragmentDirections.actionBombSettingFragmentToBombDisplayFragment(amount,minusTime,armTime)
-                    findNavController(view).navigate(action)
+                if(amountBombTime > 0 && wrongGuessTime > 0 && armTime > 0){
+                    val action = BombSettingFragmentDirections.actionBombSettingFragmentToBombDisplayFragment(amountBombTime,wrongGuessTime,armTime)
+                    view?.let{findNavController(it).navigate(action)}
                 }else{
                     Toast.makeText(context, "E0 input can't be 0", Toast.LENGTH_SHORT).show()
                 }
             }
-
         }
 
-        return view
+        return binding.root
     }
 }
