@@ -28,10 +28,11 @@ class BombDisplayFragment : Fragment() {
     private val defuseCode = mutableListOf<Int>() //Numbers for defuseCode
 
 
-    private var mediaPlayerSiren: MediaPlayer? = null //inside clear BTN todo
+    private var mediaPlayerSiren: MediaPlayer? = null //inside clear BTN
     private var mediaPlayerBeeper: MediaPlayer? = null //inside Timer
     private var mediaPlayerBombArming: MediaPlayer? = null // Bomb Arming
-
+    private var mediaPlayerBoomBombSound: MediaPlayer? = null //inside end Timer
+    private var mediaPlayerGameWon: MediaPlayer? = null // inside bomb disarmed
 
     //    ///////TIMER////////////TIMER//////////////TIMER////////////TIMER/////////
     private lateinit var timerCountdownTimer: CountDownTimer
@@ -51,6 +52,8 @@ class BombDisplayFragment : Fragment() {
         mediaPlayerSiren = MediaPlayer.create(context, R.raw.emergency_siren_short_bursttwo) //Loads sound for clear BTN
         mediaPlayerBeeper = MediaPlayer.create(context, R.raw.beeper) //Loads sound for timer
         mediaPlayerBombArming = MediaPlayer.create(context, R.raw.alarmhugescifsp) //Loads Arming Bomb
+        mediaPlayerBoomBombSound = MediaPlayer.create(context, R.raw.explosionbomb) //Loads Game lost
+        mediaPlayerGameWon = MediaPlayer.create(context, R.raw.orchestralvictoryfanfare) // Loads Game own
 
     }
 
@@ -182,7 +185,7 @@ class BombDisplayFragment : Fragment() {
             defuseCode.shuffle()
             binding.diffuseCodeTxt.text = defuseCode.toString()
             binding.pinEntered.text = defuseNumber.toString()
-            btnOn() //todo
+            btnOn()
             wrongGuess()
 
             mediaPlayerSiren?.start() //plays sound
@@ -320,6 +323,7 @@ class BombDisplayFragment : Fragment() {
         mediaPlayerSiren?.stop()
 
 
+        mediaPlayerBoomBombSound?.start()
         val action = BombDisplayFragmentDirections.actionBombDisplayFragmentToGameOverFragment(gameWon = false)
         view?.let { Navigation.findNavController(it).navigate(action) }
     }
@@ -330,6 +334,8 @@ class BombDisplayFragment : Fragment() {
         countdownTimer.cancel()
         isRunning = false
 
+
+        mediaPlayerGameWon?.start()
         val action = BombDisplayFragmentDirections.actionBombDisplayFragmentToGameOverFragment(gameWon = true)
         view?.let { Navigation.findNavController(it).navigate(action) }
 

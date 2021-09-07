@@ -23,14 +23,9 @@ class GameOverFragment : Fragment() {
     private val binding get() = _binding!!
     private val args: GameOverFragmentArgs by navArgs()
 
-    private var mediaPlayerBoomBombSound: MediaPlayer? = null //inside end Timer
-    private var mediaPlayerGameWon: MediaPlayer? = null // inside bomb disarmed
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mediaPlayerBoomBombSound = MediaPlayer.create(context, R.raw.explosionbomb) //Loads Game lost
-        mediaPlayerGameWon = MediaPlayer.create(context, R.raw.orchestralvictoryfanfare) // Loads Game own
 
     }
 
@@ -52,11 +47,10 @@ class GameOverFragment : Fragment() {
             Toast.makeText(context, "Game Lost!!", Toast.LENGTH_SHORT).show()
             binding.bdImg.setImageResource(R.drawable.deadimage)
 
-            mediaPlayerBoomBombSound?.start()
         }else{
             Toast.makeText(context, "Game Won", Toast.LENGTH_SHORT).show()
             binding.bdImg.setImageResource(R.drawable.ggbro)
-            mediaPlayerGameWon?.start()
+
         }
 
         binding.btnSettings.setOnClickListener {
@@ -67,5 +61,10 @@ class GameOverFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 }
