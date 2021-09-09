@@ -12,8 +12,8 @@ android {
         applicationId "com.l3git.randombomb"
         minSdk 22
         targetSdk 30
-        versionCode 6
-        versionName "6.0"
+        versionCode 8
+        versionName "8.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

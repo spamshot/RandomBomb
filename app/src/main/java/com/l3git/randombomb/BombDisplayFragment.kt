@@ -31,8 +31,8 @@ class BombDisplayFragment : Fragment() {
     private var mediaPlayerSiren: MediaPlayer? = null //inside clear BTN
     private var mediaPlayerBeeper: MediaPlayer? = null //inside Timer
     private var mediaPlayerBombArming: MediaPlayer? = null // Bomb Arming
-    private var mediaPlayerBoomBombSound: MediaPlayer? = null //inside end Timer
-    private var mediaPlayerGameWon: MediaPlayer? = null // inside bomb disarmed
+//    private var mediaPlayerBoomBombSound: MediaPlayer? = null //inside end Timer
+//    private var mediaPlayerGameWon: MediaPlayer? = null // inside bomb disarmed
 
     //    ///////TIMER////////////TIMER//////////////TIMER////////////TIMER/////////
     private lateinit var timerCountdownTimer: CountDownTimer
@@ -52,8 +52,8 @@ class BombDisplayFragment : Fragment() {
         mediaPlayerSiren = MediaPlayer.create(context, R.raw.emergency_siren_short_bursttwo) //Loads sound for clear BTN
         mediaPlayerBeeper = MediaPlayer.create(context, R.raw.beeper) //Loads sound for timer
         mediaPlayerBombArming = MediaPlayer.create(context, R.raw.alarmhugescifsp) //Loads Arming Bomb
-        mediaPlayerBoomBombSound = MediaPlayer.create(context, R.raw.explosionbomb) //Loads Game lost
-        mediaPlayerGameWon = MediaPlayer.create(context, R.raw.orchestralvictoryfanfare) // Loads Game own
+//        mediaPlayerBoomBombSound = MediaPlayer.create(context, R.raw.explosionbomb) //Loads Game lost
+//        mediaPlayerGameWon = MediaPlayer.create(context, R.raw.orchestralvictoryfanfare) // Loads Game own
 
     }
 
@@ -323,7 +323,7 @@ class BombDisplayFragment : Fragment() {
         mediaPlayerSiren?.stop()
 
 
-        mediaPlayerBoomBombSound?.start()
+//        mediaPlayerBoomBombSound?.start()
         val action = BombDisplayFragmentDirections.actionBombDisplayFragmentToGameOverFragment(gameWon = false)
         view?.let { Navigation.findNavController(it).navigate(action) }
     }
@@ -335,7 +335,7 @@ class BombDisplayFragment : Fragment() {
         isRunning = false
 
 
-        mediaPlayerGameWon?.start()
+//        mediaPlayerGameWon?.start()
         val action = BombDisplayFragmentDirections.actionBombDisplayFragmentToGameOverFragment(gameWon = true)
         view?.let { Navigation.findNavController(it).navigate(action) }
 

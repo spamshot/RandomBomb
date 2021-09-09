@@ -40,7 +40,7 @@ class BombSettingFragment : Fragment() {
 
 
         binding.btnStart.setOnClickListener{
-            if (binding.editArmTime.text.toString().isNotEmpty() && binding.editMinusTime.text.toString().isNotEmpty() && binding.editArmTime.text.toString().isNotEmpty()){
+            if (binding.editArmTime.text.toString().isNotEmpty() && binding.editMinusTime.text.toString().isNotEmpty() && binding.bombTimer.text.toString().isNotEmpty()){
 
                 val amountBombTime = binding.editArmTime.text.toString().toInt()
                 val wrongGuessTime = binding.editMinusTime.text.toString().toInt()
