@@ -32,15 +32,15 @@
         android:text="@string/txt_min"
         android:textStyle="bold"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/bombTimer"
+        app:layout_constraintBottom_toBottomOf="@+id/etBombTimer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bombTimer"
-        app:layout_constraintTop_toTopOf="@+id/bombTimer" />
+        app:layout_constraintStart_toEndOf="@+id/etBombTimer"
+        app:layout_constraintTop_toTopOf="@+id/etBombTimer" />
 
 
     <EditText
-        android:id="@+id/bombTimer"
+        android:id="@+id/etBombTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="@string/txt_hint_300"
@@ -65,7 +65,7 @@
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toStartOf="@+id/bombTimer"
+        app:layout_constraintEnd_toStartOf="@+id/etBombTimer"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtArmTime" />
@@ -79,14 +79,14 @@
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toStartOf="@+id/editArmTime"
+        app:layout_constraintEnd_toStartOf="@+id/etArmTime"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/extInFo"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
-        android:id="@+id/editArmTime"
+        android:id="@+id/etArmTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="@string/txt_hint_20"
@@ -109,11 +109,11 @@
         android:text="@string/txt_seconds"
         android:textStyle="bold"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editArmTime"
+        app:layout_constraintBottom_toBottomOf="@+id/etArmTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editArmTime"
-        app:layout_constraintTop_toTopOf="@+id/editArmTime" />
+        app:layout_constraintStart_toEndOf="@+id/etArmTime"
+        app:layout_constraintTop_toTopOf="@+id/etArmTime" />
 
     <TextView
         android:id="@+id/textView3"
@@ -124,13 +124,13 @@
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnStart"
-        app:layout_constraintEnd_toStartOf="@+id/editMinusTime"
+        app:layout_constraintEnd_toStartOf="@+id/etWrongGuess"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/editMinusTime"
+        android:id="@+id/etWrongGuess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints="@string/txt_hint_20"
@@ -153,11 +153,11 @@
         android:text="@string/txt_seconds"
         android:textStyle="bold"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editMinusTime"
+        app:layout_constraintBottom_toBottomOf="@+id/etWrongGuess"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editMinusTime"
-        app:layout_constraintTop_toTopOf="@+id/editMinusTime" />
+        app:layout_constraintStart_toEndOf="@+id/etWrongGuess"
+        app:layout_constraintTop_toTopOf="@+id/etWrongGuess" />
 
     <Button
         android:id="@+id/btnStart"

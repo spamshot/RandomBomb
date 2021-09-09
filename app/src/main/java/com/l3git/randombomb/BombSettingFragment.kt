@@ -40,17 +40,17 @@ class BombSettingFragment : Fragment() {
 
 
         binding.btnStart.setOnClickListener{
-            if (binding.editArmTime.text.toString().isNotEmpty() && binding.editMinusTime.text.toString().isNotEmpty() && binding.bombTimer.text.toString().isNotEmpty()){
+            if (binding.etArmTime.text.toString().isNotEmpty() && binding.etWrongGuess.text.toString().isNotEmpty() && binding.etBombTimer.text.toString().isNotEmpty()){
 
-                val amountBombTime = binding.editArmTime.text.toString().toInt()
-                val wrongGuessTime = binding.editMinusTime.text.toString().toInt()
-                val armTime = binding.editArmTime.text.toString().toInt()
+                val amountBombTime = binding.etBombTimer.text.toString().toInt()
+                val wrongGuessTime = binding.etWrongGuess.text.toString().toInt()
+                val armTime = binding.etArmTime.text.toString().toInt()
 
                 if(amountBombTime > 0 && wrongGuessTime > 0 && armTime > 0){
                     val action = BombSettingFragmentDirections.actionBombSettingFragmentToBombDisplayFragment(amountBombTime,wrongGuessTime,armTime)
                     view?.let{findNavController(it).navigate(action)}
                 }else{
-                    Toast.makeText(context, "E0 input can't be 0", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Input can't be 0", Toast.LENGTH_SHORT).show()
                 }
             }
         }
