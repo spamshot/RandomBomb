@@ -15,6 +15,7 @@ import androidx.navigation.Navigation
 
 import androidx.navigation.fragment.navArgs
 import com.l3git.randombomb.databinding.FragmentBombDisplayBinding
+import java.time.format.DateTimeFormatter
 
 
 class BombDisplayFragment : Fragment() {
@@ -31,8 +32,7 @@ class BombDisplayFragment : Fragment() {
     private var mediaPlayerSiren: MediaPlayer? = null //inside clear BTN
     private var mediaPlayerBeeper: MediaPlayer? = null //inside Timer
     private var mediaPlayerBombArming: MediaPlayer? = null // Bomb Arming
-//    private var mediaPlayerBoomBombSound: MediaPlayer? = null //inside end Timer
-//    private var mediaPlayerGameWon: MediaPlayer? = null // inside bomb disarmed
+
 
     //    ///////TIMER////////////TIMER//////////////TIMER////////////TIMER/////////
     private lateinit var timerCountdownTimer: CountDownTimer
@@ -52,8 +52,7 @@ class BombDisplayFragment : Fragment() {
         mediaPlayerSiren = MediaPlayer.create(context, R.raw.emergency_siren_short_bursttwo) //Loads sound for clear BTN
         mediaPlayerBeeper = MediaPlayer.create(context, R.raw.beeper) //Loads sound for timer
         mediaPlayerBombArming = MediaPlayer.create(context, R.raw.alarmhugescifsp) //Loads Arming Bomb
-//        mediaPlayerBoomBombSound = MediaPlayer.create(context, R.raw.explosionbomb) //Loads Game lost
-//        mediaPlayerGameWon = MediaPlayer.create(context, R.raw.orchestralvictoryfanfare) // Loads Game own
+
 
     }
 
@@ -300,6 +299,7 @@ class BombDisplayFragment : Fragment() {
     }
 
     fun updateTextUI() {
+
         val minute = (timeInMilliSeconds / 1000) / 60
         val seconds = (timeInMilliSeconds / 1000) % 60
         binding.countDownTimerDisplay.text = "$minute:$seconds"
@@ -310,6 +310,7 @@ class BombDisplayFragment : Fragment() {
     fun updateArmingTextUI() {
         val minute = (timeInMill / 1000) / 60
         val seconds = (timeInMill / 1000) % 60
+
         binding.countDownTimerDisplay.text = "$minute:$seconds"
         mediaPlayerBombArming?.start()
 
@@ -322,8 +323,6 @@ class BombDisplayFragment : Fragment() {
         mediaPlayerBeeper?.stop()
         mediaPlayerSiren?.stop()
 
-
-//        mediaPlayerBoomBombSound?.start()
         val action = BombDisplayFragmentDirections.actionBombDisplayFragmentToGameOverFragment(gameWon = false)
         view?.let { Navigation.findNavController(it).navigate(action) }
     }
@@ -334,8 +333,6 @@ class BombDisplayFragment : Fragment() {
         countdownTimer.cancel()
         isRunning = false
 
-
-//        mediaPlayerGameWon?.start()
         val action = BombDisplayFragmentDirections.actionBombDisplayFragmentToGameOverFragment(gameWon = true)
         view?.let { Navigation.findNavController(it).navigate(action) }
 
