@@ -10,9 +10,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
 import com.l3git.randombomb.databinding.FragmentGameOverBinding
 
 
@@ -42,11 +39,6 @@ class GameOverFragment : Fragment() {
         // Inflate the layout for this fragment
        _binding = FragmentGameOverBinding.inflate(inflater, container, false)
         val gameStatus = args.gameWon
-
-        MobileAds.initialize(requireContext()) {}
-
-        val adRequest = AdRequest.Builder().build()
-            binding.adView.loadAd(adRequest)
 
         if (!gameStatus){
             mediaPlayerBoomBombSound?.start()

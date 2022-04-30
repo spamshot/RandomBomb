@@ -10,9 +10,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.Navigation.findNavController
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
 import com.l3git.randombomb.databinding.FragmentBombSettingsBinding
 
 
@@ -32,11 +29,6 @@ class BombSettingFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
        _binding = FragmentBombSettingsBinding.inflate(inflater, container, false)
-
-        MobileAds.initialize(requireContext()) {}
-
-        val adRequest = AdRequest.Builder().build()
-        binding.adView.loadAd(adRequest)
 
 
         binding.btnStart.setOnClickListener{
